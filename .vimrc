@@ -34,17 +34,3 @@
 :set fileencodings=utf-8
 
 :inoremap kj <Esc>
-
-":colorscheme desert
-:colorscheme ir_black
-
-"if has('gui_running')
-"    :set guifont=Inconsolata:h11:cANSI
-"endif
-
-" Syntax highlighting for mxml, actionscript
-:au BufNewFile,BufRead *.mxml set filetype=mxml
-:au BufNewFile,BufRead *.as set filetype=actionscript
-
-" Looks for tags file, recursively up to root
-:set tags=./tags;/
