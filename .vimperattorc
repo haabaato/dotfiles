@@ -1,0 +1,18 @@
+" move in page
+noremap j 5j
+noremap k 5k
+noremap J <C-d>
+noremap K <C-u>
+
+" Hide and reveal the menubar and the toolbar
+noremap <silent> <A-Up> :set guioptions+=mT<CR>
+noremap <silent> <A-Down> :set guioptions-=mT<CR>
+
+colorscheme sweets
+
+set guioptions=mTn
+set "runtimepath=C:\\Users\\tc\\vimperator"
+source! "C:\\Users\\tc\\_vimperatorrc.local"
+source! "C:\\Users\\tc\\.vimperatorrc.local"
+
+" vim: set ft=vimperator:
