@@ -48,3 +48,10 @@
 
 " Looks for tags file, recursively up to root
 :set tags=./tags;/
+
+" Get rid of menu and toolbar in GVIM
+if has('gui_running')
+    set guioptions-=T   " Get rid of toolbar
+    set guioptions-=m   " Get rid of menu
+endif
+
