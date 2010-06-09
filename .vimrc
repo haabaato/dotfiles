@@ -71,5 +71,3 @@ endif
 
 " Looks for tags file, recursively up to root
 :set tags=./tags;/
-
-

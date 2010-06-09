@@ -7,6 +7,8 @@ noremap K <C-u>
 " Hide and reveal the menubar and the toolbar
 noremap <silent> <A-Up> :set guioptions+=mT<CR>
 noremap <silent> <A-Down> :set guioptions-=mT<CR>
+noremap <C-c> <C-v><C-c>
+inoremap <C-v> <C-v><C-v>
 
 colorscheme sweets
 
