@@ -42,9 +42,11 @@
 "    :set guifont=Inconsolata:h11:cANSI
 "endif
 
-" Syntax highlighting for mxml, actionscript
+" Syntax highlighting 
 :au BufNewFile,BufRead *.mxml set filetype=mxml
 :au BufNewFile,BufRead *.as set filetype=actionscript
+:au BufRead,BufNewFile *.scss set filetype=scss
+
 
 " Looks for tags file, recursively up to root
 :set tags=./tags;/
