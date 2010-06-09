@@ -45,10 +45,11 @@ if has('gui_running')
     :set guioptions-=T
 endif
 
-" Syntax highlighting 
+" Detect filetypes for syntax highlighting, and autocmds 
 :au BufNewFile,BufRead *.mxml set filetype=mxml
 :au BufNewFile,BufRead *.as set filetype=actionscript
 :au BufRead,BufNewFile *.scss set filetype=scss
+:au BufRead,BufNewFile *.markdown set filetype=markdown
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -64,6 +65,9 @@ if has("autocmd")
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+
+  " Useful for textformatting during blogging
+  autocmd FileType markdown setlocal fo+=a
  
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
