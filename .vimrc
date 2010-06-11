@@ -25,12 +25,13 @@
                     " vim will interpret it to be having
                     " a width of 4.
 
-:set shiftwidth=4    " Intents will have a width of 4
+:set shiftwidth=4    " Indents will have a width of 4
 
 :set softtabstop=4   " Sets the number of columns for a TAB
 
 :set expandtab       " Expand TABs to spaces
 
+:set fileencoding=utf-8
 :set fileencodings=utf-8
 
 :inoremap kj <Esc>
@@ -38,22 +39,39 @@
 ":colorscheme desert
 :colorscheme ir_black
 
-"if has('gui_running')
-"    :set guifont=Inconsolata:h11:cANSI
-"endif
+if has('gui_running')
+    ":set guifont=Inconsolata:h11:cANSI
+    :set guioptions-=m
+    :set guioptions-=T
+endif
 
-" Syntax highlighting 
+" Detect filetypes for syntax highlighting, and autocmds 
 :au BufNewFile,BufRead *.mxml set filetype=mxml
 :au BufNewFile,BufRead *.as set filetype=actionscript
 :au BufRead,BufNewFile *.scss set filetype=scss
+:au BufRead,BufNewFile *.markdown set filetype=markdown
 
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+  " Enable file type detection
+  filetype on
+ 
+  " Syntax of these languages is fussy over tabs Vs spaces
+  autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+ 
+  " Customisations based on house-style (arbitrary)
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+
+  " Useful for textformatting during blogging
+  autocmd FileType markdown setlocal fo+=a
+ 
+  " Treat .rss files as XML
+  autocmd BufNewFile,BufRead *.rss setfiletype xml
+endif
 
 " Looks for tags file, recursively up to root
 :set tags=./tags;/
-
-" Get rid of menu and toolbar in GVIM
-if has('gui_running')
-    set guioptions-=T   " Get rid of toolbar
-    set guioptions-=m   " Get rid of menu
-endif
-
