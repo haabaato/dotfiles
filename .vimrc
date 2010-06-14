@@ -36,13 +36,13 @@
 
 :inoremap kj <Esc>
 
-":colorscheme desert
-:colorscheme ir_black
+:colorscheme desert
 
 if has('gui_running')
     ":set guifont=Inconsolata:h11:cANSI
     :set guioptions-=m
     :set guioptions-=T
+    :colorscheme ir_black
 endif
 
 " Detect filetypes for syntax highlighting, and autocmds 
