@@ -75,3 +75,10 @@ endif
 
 " Looks for tags file, recursively up to root
 :set tags=./tags;/
+
+let g:user_zen_settings = {
+\   'scss': {
+\       'extends' : 'css',
+\       'filters' : 'css',
+\    },
+\}
