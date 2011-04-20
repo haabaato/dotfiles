@@ -77,6 +77,9 @@ endif
 :set tags=./tags;/
 
 let g:user_zen_settings = {
+\   'css' : {
+\       'filters': 'html, fc',
+\   },
 \   'scss': {
 \       'extends' : 'css',
 \       'filters' : 'css',
