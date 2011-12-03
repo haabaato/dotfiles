@@ -1,3 +1,6 @@
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 :syntax on
 :autocmd FileType *      set formatoptions=tcql nocindent comments&
 :autocmd FileType c,cpp  set formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
@@ -34,8 +37,6 @@
 :set fileencoding=utf-8
 :set fileencodings=utf-8
 
-:inoremap kj <Esc>
-
 :colorscheme desert
 
 if has('gui_running')
@@ -65,9 +66,10 @@ if has("autocmd")
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType php setlocal ts=2 sts=2 sw=2 expandtab
 
   " Useful for textformatting during blogging
-  autocmd FileType markdown setlocal fo+=a
+  "autocmd FileType markdown setlocal fo+=a
  
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
@@ -78,10 +80,17 @@ endif
 
 let g:user_zen_settings = {
 \   'css' : {
-\       'filters': 'html, fc',
+\       'filters': 'html, css, fc',
 \   },
 \   'scss': {
 \       'extends' : 'css',
-\       'filters' : 'css',
+\       'filters' : 'css, fc',
 \    },
 \}
+
+" If you need root permissions to save
+cmap w!! w !sudo tee % >/dev/null
+
+" Settings for CloseTag plugin
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
